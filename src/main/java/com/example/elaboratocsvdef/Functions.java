@@ -7,8 +7,8 @@ import java.util.*;
 public class Functions {
         public static void aggiungiCampo(){
             try{
-            BufferedReader br = new BufferedReader(new FileReader("Longo.csv"));
-            BufferedWriter bw = new BufferedWriter(new FileWriter("Longo.csv"));
+            BufferedReader br = new BufferedReader(new FileReader("com/example/elaboratocsvdef/Longo.csv"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("com/example/elaboratocsvdef/Longo.csv"));
             String riga;
             boolean primaRiga = true;
             Random random = new Random();
@@ -32,4 +32,22 @@ public class Functions {
                 e.printStackTrace();
             }
     }
-}
+    public static void contaCampi(){
+            try{
+                BufferedReader br = new BufferedReader(new FileReader("com/example/elaboratocsvdef/Longo.csv"));
+                String riga;
+                int rigaNumero = 1;
+
+                while ((riga = br.readLine()) != null) {
+                    String[] campi = riga.split(";");
+                    System.out.println("Riga " + rigaNumero + " ha " + campi.length + " campi.");
+                    rigaNumero++;
+                }
+
+                br.close();
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+        }
+
+    }
